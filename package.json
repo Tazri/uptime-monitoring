@@ -1,0 +1,16 @@
+{
+  "name": "uptime-monitoring",
+  "version": "1.0.0",
+  "description": "This is uptime monitoring app created by raw node js. This project for learn about raw node js.",
+  "main": "index.js",
+  "repository": "https://github.com/Tazri/uptime-monitoring.git",
+  "author": "Md Tazri",
+  "license": "MIT",
+  "scripts": {
+    "start": "NODE_ENV=staging nodemon index.js",
+    "production" : "NODE_ENV=production nodemon index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
