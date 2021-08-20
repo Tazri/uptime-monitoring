@@ -13,14 +13,26 @@ const enviroments = {};
 enviroments.staging = {
     secretKey : "I am a programmer",
     port : '3030',
-    envName : 'staging'
+    envName : 'staging',
+    maxChecks : 5,
+    twilio : {
+        fromPhone : '+15005550006',
+        accountSid : "AC1f1424f9bf58b58584588ed0934e634e",
+        authToken : "926d4724347aa9de6b5cc7fd07ae9bca"
+    }
 }
 
 // production
 enviroments.production = {
     secretKey : "This is production enviroment production",
     port : '5000',
-    envName : 'production'
+    envName : 'production',
+    maxChecks : 5,
+    twilio : {
+        fromPhone : '+15005550006',
+        accountSid : "AC1f1424f9bf58b58584588ed0934e634e",
+        authToken : "926d4724347aa9de6b5cc7fd07ae9bca"
+    }
 }
 
 // select enviroment

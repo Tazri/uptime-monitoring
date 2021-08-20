@@ -1,46 +1,30 @@
 /* 
-* Title: Uptime Monitoring Application
-* Description: A RESTFUL API to monitor up or down time of user defind links
+* Title: Project intial file.
+* Description: Create server and start the worker
 * Author: Md Tazri
-* Date: 7/8/2021
+* Date: 20/8/2021
 *
 */
 
 // dependencies
-const http = require('http');
-const {handleReqRes} = require('./helpers/handleResReq')
-const enviroment = require('./helpers/enviroment');
+const server = require("./main/server");
+const worker = require("./main/worker");
+
 
 // app object - module scaffolding
 const app = {};
 
-// configuration
-app.config = {
-    port: enviroment.port
-};
+// start the sever and worker
+app.init = ()=>{
+    // init the server
+    server.init();
 
-// create server
-app.createServer = ()=>{
-    app.server = http.createServer(app.handleReqAndRes);
-}   
-
-// listen the server
-app.listenServer = ()=>{
-    if(!app.server){
-        app.server = http.createServer(app.handleReqAndRes);
-    }
-
-    // listen the server
-    let port = app.config.port;
-    app.server.listen(port, ()=>{
-        console.log("Server is runing on "+port);
-        console.log("\n\n\n\n\n");
-        console.log("Go to the server http://localhost:"+port);
-    });
+    // init the worker
+    worker.init();
 }
 
-// handle request and response
-app.handleReqAndRes = handleReqRes;
+// init the app
+app.init();
 
-// intial the server and listen
-app.listenServer();
+// export the app
+module.exports = app;

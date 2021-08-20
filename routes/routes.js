@@ -8,13 +8,16 @@
 
 // dependencies
 const simpleHandler = require('./handlers/simpleHandler');
+const { tokenHandler } = require('./handlers/tokenHandler');
 const { userHandler } = require('./handlers/userHandler');
-
+const { checkHandler } = require("./handlers/checkHandler");
 
 // routes object - module scaffolding
 const routes = {
     simple : simpleHandler,
-    user : userHandler
+    user : userHandler,
+    token : tokenHandler,
+    check : checkHandler
 };
 
 // exports routes

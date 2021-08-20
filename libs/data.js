@@ -117,5 +117,29 @@ dataLib.delete = (dir,file,callback)=>{
     })
 }
 
+// readDir
+dataLib.readDir = (dir,callback)=>{
+    // create pathName
+    const pathName = dataLib.basedir+dir+'/';
+
+    // read dir
+    fs.readdir(pathName,(error,fileNamesWithExt)=>{
+        // if error exist
+        if(error){
+            callback("Something is problem."+error);
+            return;
+        }
+
+        // if all ok then collect all file name without json
+        let fileNames = [];
+
+        fileNamesWithExt.forEach(name=>{
+            fileNames.push(name.split('.')[0]);
+        })
+
+        callback(true,fileNames);
+    });
+}
+
 // export dataLib
 module.exports = dataLib;
